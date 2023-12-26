@@ -1,0 +1,25 @@
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/dictionary";
+
+
+export default async function Home({
+  params: { Lang }
+}: {
+  params: { Lang: string }
+}) {
+  const  {page}  = await getDictionary(Lang)
+  
+  return (
+    
+    <div className="gap-y-6 ">
+      <div className="flex justify-center text-center">
+        <h2>{page.page3.title}</h2>
+      </div>
+      <div className="flex justify-center text-center">
+        <p className=" w-2/3">
+        {page.page3.description}
+        </p>
+      </div>
+    </div>
+  );
+}
